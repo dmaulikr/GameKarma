@@ -25,7 +25,7 @@
    
     gameScore[@"KarmaPoints"] = [NSNumber numberWithInt:i];
 
-    gameScore[@"userName"] = @"Mohit Jain";
+    gameScore[@"userName"] = [PFUser currentUser].username;
    
     [gameScore saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
         if (succeeded) {

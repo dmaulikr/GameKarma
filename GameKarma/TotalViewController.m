@@ -15,7 +15,8 @@
 
 - (void)viewDidLoad {
     PFQuery *query = [PFQuery queryWithClassName:@"Karma"];
-    [query whereKey:@"userName" equalTo:@"Mohit Jain"];
+    [query whereKey:@"userName" equalTo:[PFUser currentUser].username];
+  
     [query findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
         if (!error) {
             // The find succeeded.
